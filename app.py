@@ -1,11 +1,15 @@
 from flask import Flask, request
 from dotenv import load_dotenv
 
-from auth import validate_credentials
+from src.auth import validate_credentials
 
 load_dotenv()
 
 app = Flask(__name__)
+
+@app.route("/")
+def hello():
+  return "hello, world"
 
 @app.route("/login", methods=["POST"])
 def login():
